@@ -1,0 +1,7 @@
+lib testlib 
+	: testlib.cpp
+	  $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
+	: <include>. 
+	  <include>$(BOOST_DIR)
+      <toolset>gcc:<cxxflags>-std=c++11
+	 ;
