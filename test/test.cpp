@@ -1,12 +1,7 @@
-#if USE_IOSTREAM_OUTPUT
-#include <iostream>
-#endif
 #include <string>
 
 #include <boost/filesystem.hpp>
-#if !USE_IOSTREAM_OUTPUT
 #include <boost/log/trivial.hpp>
-#endif
 
 #include "lib/testlib.h"
 
@@ -19,16 +14,7 @@ int main(int argc, char **argv)
 	buffer.resize(chars_written);
 
 	const fs::path cwd(buffer);
-
-#if !USE_IOSTREAM_OUTPUT
-	BOOST_LOG_TRIVIAL(debug) << 
-#else
-	std::cout << 
-#endif
-		"We got " << cwd << " from the library and " << cwd.parent_path() << " as parent.";
-#if USE_IOSTREAM_OUTPUT
-	std::cout << std::endl;
-#endif
+	BOOST_LOG_TRIVIAL(debug) << "We got " << cwd << " from the library and " << cwd.parent_path() << " as parent.";
 
 	return 0;
 }

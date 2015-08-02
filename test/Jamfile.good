@@ -1,8 +1,0 @@
-exe test 
-	: test.cpp
-      lib//testlib
-	  $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
-	: <include>$(BOOST_DIR)
-	  <define>USE_IOSTREAM_OUTPUT=1
-      <toolset>gcc:<cxxflags>-std=c++11
-	 ;

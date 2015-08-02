@@ -10,12 +10,12 @@ After checkout the Boost release archives need to be extracted into the `externa
 
 The Boost version used can be changed by editing the paths in `Jamroot`. Currently the last release (1.58.0) is selected.
 
-There are two different Jamfiles to build the project:
-  * `test/Jamfile.good`  
-    This configuration uses `std::cout` to write the results. This version builds with all tested versions of Boost.
-  * `test/Jamfile.fail`  
-    This configuration uses Boost.Log to write the results. This version only builds with Boost version 1.57.0. Both newer versions abort with a build failure.
+There are two projects that can be built in `test/Jamfile`:
+  * test:  
+    This project builds with all Boost versions tested and works as expected.
+  * fail:  
+    This configuration fails to build with Boost 1.58 or newer. The only change is the order of the project dependencies.
 
+### Changes in Boost.Log between 1.57 and 1.58
 
-  * `test/Jamfile` is a symlink, that currently points to `test/Jamfile.fail`. Change this symlink to build different setups.
-
+Andrey Semashev [pointed out](http://lists.boost.org/Archives/boost/2015/08/224438.php) that [between 1.57 and 1.58](https://github.com/boostorg/log/compare/boost-1.57.0...boost-1.58.0) the only change of the Boost.Log build system was the [switch to Boost.Config](https://github.com/boostorg/log/commit/27a822a6b82f8bf34cbc681ac6583412bdf27d85).
