@@ -1,21 +1,20 @@
 exe test 
-	: test.cpp
-#     lib//testlib
-	  $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
+    : test.cpp
+#      lib//testlib
+      $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
       $(BOOST_DIR)/libs/log/build//boost_log
       $(BOOST_DIR)/libs/log/build//boost_log_setup
-	  lib//testlib
-	: <include>$(BOOST_DIR)
-      <toolset>gcc:<cxxflags>-std=c++11
-	;
+      lib//testlib
+    : <toolset>gcc:<cxxflags>-std=c++11
+    ;
 
 exe fail 
-	: test.cpp
+    : test.cpp
       lib//testlib
-	  $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
+      $(BOOST_DIR)/libs/filesystem/build//boost_filesystem
       $(BOOST_DIR)/libs/log/build//boost_log
       $(BOOST_DIR)/libs/log/build//boost_log_setup
-#	  lib//testlib
-	: <include>$(BOOST_DIR)
-      <toolset>gcc:<cxxflags>-std=c++11
-	;
+#      lib//testlib
+    : <toolset>gcc:<cxxflags>-std=c++11
+    ;
+
